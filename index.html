@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101114">
+  <meta name="description" content="Allen James (AJ Edits) is a video editor and motion graphics artist with 4+ years of experience in short-form content, ads, podcast edits, and animation.">
+  <title>Allen James | AJ Edits — Video Editor & Motion Graphics</title>
+  <style>
+    :root {
+      --bg: #101114;
+      --panel: #181a1f;
+      --panel2: #202229;
+      --paper: #f3f0e9;
+      --muted: #a7a8b0;
+      --line: rgba(255,255,255,.12);
+      --accent: #ff7548;
+      --accent2: #c5f36b;
+      --max: 1180px;
+      --radius: 18px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--paper); background: var(--bg); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.55; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    .wrap { width: min(var(--max), calc(100% - 48px)); margin-inline: auto; }
+    .topbar { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(16px); background: rgba(16,17,20,.82); border-bottom: 1px solid var(--line); }
+    .nav { height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: flex; align-items: center; gap: 11px; font-weight: 850; letter-spacing: -.04em; }
+    .brand-mark { display: grid; place-items: center; width: 39px; height: 39px; border-radius: 12px; color: #151619; background: var(--accent2); font-size: 15px; letter-spacing: -.07em; }
+    .brand-name { font-size: 16px; }
+    .brand-name small { display: block; color: var(--muted); font-size: 9px; letter-spacing: .18em; font-weight: 700; margin-top: -2px; }
+    .navlinks { display: flex; align-items: center; gap: 30px; color: #c4c4ca; font-size: 13px; }
+    .navlinks a:hover { color: var(--accent2); }
+    .nav-cta { padding: 11px 16px; background: var(--paper); color: var(--bg); border-radius: 999px; font-size: 12px; font-weight: 800; }
+    .nav-cta:hover, .button-light:hover { background: var(--accent2); }
+    .hero { position: relative; overflow: hidden; padding: 94px 0 84px; }
+    .hero::before { content: ""; position: absolute; width: 620px; height: 620px; top: -320px; right: -160px; border-radius: 50%; background: radial-gradient(circle, rgba(255,117,72,.18), transparent 68%); pointer-events: none; }
+    .hero-grid { display: grid; grid-template-columns: 1.02fr .98fr; align-items: center; gap: 64px; position: relative; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; color: var(--accent2); text-transform: uppercase; font-size: 10px; letter-spacing: .2em; font-weight: 850; }
+    .eyebrow::before { content: ""; width: 26px; height: 1px; background: currentColor; }
+    h1 { font-size: clamp(48px, 6.4vw, 84px); letter-spacing: -.075em; line-height: .98; margin: 22px 0 24px; font-weight: 800; max-width: 690px; }
+    h1 em { font-family: Georgia, "Times New Roman", serif; font-weight: 500; color: var(--accent); letter-spacing: -.07em; }
+    .hero-copy { max-width: 540px; color: #b9bac1; font-size: 16px; line-height: 1.8; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+    .button { display: inline-flex; align-items: center; justify-content: center; gap: 12px; padding: 14px 19px; border-radius: 999px; border: 1px solid var(--line); font-size: 12px; font-weight: 800; transition: transform .2s ease, background .2s ease; }
+    .button:hover { transform: translateY(-2px); }
+    .button-light { color: #151619; background: var(--paper); border-color: var(--paper); }
+    .button-outline { color: var(--paper); }
+    .button-outline:hover { border-color: var(--accent2); color: var(--accent2); }
+    .hero-note { margin-top: 30px; display: flex; align-items: center; gap: 10px; color: #8f9098; font-size: 11px; }
+    .status-dot { width: 7px; height: 7px; background: var(--accent2); border-radius: 100%; box-shadow: 0 0 0 5px rgba(197,243,107,.09); }
+    .hero-art { position: relative; min-height: 430px; }
+    .art-frame { position: absolute; border: 1px solid rgba(255,255,255,.18); overflow: hidden; border-radius: 20px; box-shadow: 0 28px 70px rgba(0,0,0,.35); }
+    .art-main { width: 72%; height: 340px; right: 4%; top: 25px; transform: rotate(3deg); background: linear-gradient(145deg,#3e2830,#e16f44 52%,#efb76c); }
+    .art-main::before { content: "FRAME / 01"; position: absolute; top: 22px; left: 22px; font-size: 9px; letter-spacing: .2em; color: rgba(255,255,255,.75); }
+    .art-main::after { content: "STORY\A IN MOTION"; white-space: pre; position: absolute; left: 22px; bottom: 26px; line-height: .9; font-size: clamp(27px, 4vw, 48px); font-weight: 900; letter-spacing: -.08em; }
+    .art-side { width: 49%; height: 190px; left: 1%; top: 4px; transform: rotate(-7deg); background: linear-gradient(135deg,#c5f36b,#478a70 55%,#1f4745); }
+    .art-side::before { content: "CUT / COLOR / RHYTHM"; position: absolute; inset: 20px; color: #13201c; font-size: 11px; font-weight: 900; letter-spacing: .07em; }
+    .art-bottom { width: 53%; height: 160px; bottom: 4px; left: 17%; transform: rotate(-3deg); background: linear-gradient(135deg,#272a39,#6672c0 55%,#e2d9b7); }
+    .art-bottom::after { content: "MOTION\A GRAPHICS"; white-space: pre; position: absolute; bottom: 20px; left: 20px; font-weight: 900; line-height: .9; font-size: 30px; letter-spacing: -.07em; }
+    .art-stamp { position: absolute; right: 0; bottom: 22px; display: grid; place-items: center; width: 88px; height: 88px; background: var(--accent2); color: #191b16; border-radius: 50%; transform: rotate(12deg); font-size: 10px; text-align: center; line-height: 1.15; font-weight: 900; letter-spacing: .08em; }
+    .ticker { border-block: 1px solid var(--line); overflow: hidden; background: #15161a; }
+    .ticker-inner { display: flex; gap: 34px; align-items: center; justify-content: space-between; padding: 19px 0; color: #b5b6bc; text-transform: uppercase; font-size: 10px; font-weight: 800; letter-spacing: .14em; white-space: nowrap; }
+    .ticker-inner span::before { content: "✳"; color: var(--accent); margin-right: 12px; }
+    section { scroll-margin-top: 94px; }
+    .section { padding: 100px 0; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 34px; }
+    .section-kicker { color: var(--accent); text-transform: uppercase; letter-spacing: .19em; font-size: 10px; font-weight: 850; }
+    h2 { font-size: clamp(34px, 4.6vw, 54px); line-height: 1; letter-spacing: -.065em; margin: 12px 0 0; }
+    .section-intro { color: var(--muted); max-width: 390px; font-size: 13px; line-height: 1.75; margin: 0; }
+    .project-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+    .project { min-width: 0; }
+    .project[hidden] { display: none; }
+    .project-visual { position: relative; display: block; border-radius: var(--radius); overflow: hidden; min-height: 215px; aspect-ratio: var(--ratio, 1.35); background: var(--paint); border: 1px solid rgba(255,255,255,.1); isolation: isolate; }
+    .project-visual::before { content: ""; position: absolute; width: 170px; height: 170px; border: 1px solid rgba(255,255,255,.35); border-radius: 50%; top: -35px; right: -20px; z-index: -1; }
+    .project-visual::after { content: ""; position: absolute; width: 110px; height: 110px; border: 1px solid rgba(255,255,255,.28); border-radius: 50%; top: -5px; right: 10px; z-index: -1; }
+    .project-number { position: absolute; top: 16px; left: 17px; color: rgba(255,255,255,.75); font-size: 9px; letter-spacing: .17em; font-weight: 850; }
+    .project-type { position: absolute; left: 17px; bottom: 17px; max-width: 80%; font-size: clamp(20px, 2.1vw, 29px); line-height: .95; font-weight: 900; letter-spacing: -.065em; text-transform: uppercase; }
+    .play { position: absolute; right: 15px; bottom: 15px; width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; background: var(--paper); color: var(--bg); font-size: 13px; transition: transform .2s ease; }
+    .project-visual:hover .play { transform: scale(1.12); }
+    .project-info { display: flex; align-items: start; justify-content: space-between; gap: 12px; padding: 13px 2px 0; }
+    .project-info h3 { margin: 0; font-size: 13px; font-weight: 750; }
+    .project-info p { margin: 3px 0 0; font-size: 10px; color: var(--muted); }
+    .project-info .arrow { color: var(--accent2); font-size: 16px; }
+    .work-foot { color: #85868e; font-size: 11px; margin-top: 22px; }
+    .folder-bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 38px; margin-bottom: 26px; }
+    .folder-bar[hidden] { display: none; }
+    .folder-back { background: transparent; border: 1px solid var(--line); color: #aeb0b7; border-radius: 999px; padding: 9px 14px; cursor: pointer; font-size: 11px; }
+    .folder-back:hover { background: var(--accent2); border-color: var(--accent2); color: #171914; font-weight: 800; }
+    .folder-path { color: var(--muted); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; font-weight: 800; }
+    .folder-path strong { color: var(--paper); }
+    .category { min-width: 0; }
+    .category-visual { width: 100%; margin-top: 12px; padding: 0; font: inherit; color: inherit; text-align: left; cursor: pointer; aspect-ratio: 1.2; }
+    .category-visual::before, .category-visual::after { content: none; }
+    .category-visual.has-stack { overflow: visible; background: transparent; }
+    .category-visual.has-stack::before, .category-visual.has-stack::after { content: ""; position: absolute; border: 1px solid rgba(255,255,255,.12); border-radius: var(--radius); background: var(--paint); filter: brightness(.45) saturate(.8); width: auto; height: auto; top: auto; right: auto; z-index: -1; transition: transform .25s ease; }
+    .category-visual.has-stack::before { inset: -6px 10px auto 10px; height: 40px; }
+    .category-visual.has-stack::after { inset: -12px 22px auto 22px; height: 40px; filter: brightness(.3) saturate(.7); }
+    .category-visual.has-stack:hover::before { transform: translateY(-3px); }
+    .category-visual.has-stack:hover::after { transform: translateY(-6px); }
+    .category-face { position: absolute; inset: 0; border-radius: inherit; overflow: hidden; background: var(--paint); }
+    .category-face::before { content: ""; position: absolute; width: 170px; height: 170px; border: 1px solid rgba(255,255,255,.35); border-radius: 50%; top: -35px; right: -20px; }
+    .category-face::after { content: ""; position: absolute; width: 110px; height: 110px; border: 1px solid rgba(255,255,255,.28); border-radius: 50%; top: -5px; right: 10px; }
+    .gloss { position: absolute; inset: 0; z-index: 1; pointer-events: none; border-radius: inherit; background: linear-gradient(180deg, rgba(14,15,19,.05) 0%, rgba(14,15,19,.25) 55%, rgba(14,15,19,.62) 100%), linear-gradient(125deg, rgba(255,255,255,.34) 0%, rgba(255,255,255,.1) 32%, rgba(255,255,255,0) 33%); box-shadow: inset 0 1px 0 rgba(255,255,255,.35), inset 0 0 0 1px rgba(255,255,255,.08); }
+    .gloss::after { content: ""; position: absolute; top: 0; bottom: 0; left: -60%; width: 40%; background: linear-gradient(100deg, transparent, rgba(255,255,255,.22), transparent); transform: skewX(-18deg); transition: left .7s ease; }
+    .category-visual:hover .gloss::after { left: 130%; }
+    .category-visual .project-number, .category-visual .project-type, .category-visual .play { z-index: 2; }
+    .category-visual:focus-visible { outline: 2px solid var(--accent2); outline-offset: 4px; }
+    .about { background: var(--paper); color: #17181c; }
+    .about-grid { display: grid; grid-template-columns: .72fr 1.28fr; gap: 80px; align-items: start; }
+    .about-aside { position: sticky; top: 115px; }
+    .portrait { aspect-ratio: .87; max-width: 320px; position: relative; overflow: hidden; border-radius: 20px; background: linear-gradient(145deg,#c7f171,#f2a67d 58%,#d5c9fa); display: grid; place-items: center; }
+    .portrait::before { content: ""; position: absolute; width: 230px; height: 230px; border: 1px solid rgba(20,20,20,.22); border-radius: 50%; }
+    .portrait::after { content: "A"; font-size: 170px; font-weight: 900; letter-spacing: -.12em; color: rgba(18,19,21,.84); z-index: 1; }
+    .portrait-label { color: #62646a; font-size: 10px; margin-top: 12px; }
+    .about .section-kicker { color: #c45a37; }
+    .about-copy { font-size: clamp(22px, 3vw, 35px); line-height: 1.42; letter-spacing: -.04em; margin: 0; max-width: 700px; }
+    .about-copy strong { font-weight: 850; }
+    .about-detail { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 32px; border-top: 1px solid rgba(0,0,0,.14); padding-top: 26px; }
+    .about-detail h3 { margin: 0 0 7px; font-size: 11px; text-transform: uppercase; letter-spacing: .13em; }
+    .about-detail p { margin: 0; font-size: 12px; line-height: 1.8; color: #5f6065; }
+    .experience-block { margin-top: 32px; padding-top: 26px; border-top: 1px solid rgba(0,0,0,.14); }
+    .experience-heading { margin: 0; font-size: 11px; text-transform: uppercase; letter-spacing: .13em; }
+    .experience-list { display: grid; grid-template-columns: 1fr 1fr; gap: 22px 28px; margin-top: 19px; }
+    .experience-item { padding-left: 14px; border-left: 2px solid #c45a37; }
+    .experience-item span { display: block; color: #77787d; font-size: 10px; letter-spacing: .07em; margin-bottom: 4px; }
+    .experience-item h4 { margin: 0; font-size: 12px; line-height: 1.45; }
+    .experience-item p { margin: 5px 0 0; color: #5f6065; font-size: 11px; line-height: 1.7; }
+    .tools-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 70px; align-items: start; }
+    .tools-copy { color: var(--muted); font-size: 14px; max-width: 420px; line-height: 1.85; }
+    .tools-list { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .tool { border: 1px solid var(--line); border-radius: 14px; padding: 19px 18px; background: linear-gradient(140deg, rgba(255,255,255,.035), transparent); }
+    .tool .tool-no { color: var(--accent); font-size: 10px; letter-spacing: .15em; font-weight: 900; }
+    .tool h3 { margin: 9px 0 0; font-size: 16px; letter-spacing: -.035em; }
+    .tool p { margin: 5px 0 0; color: #8f9098; font-size: 10px; }
+    .services { padding-top: 20px; }
+    .service-row { display: grid; grid-template-columns: 55px 1fr auto; align-items: center; gap: 20px; border-top: 1px solid var(--line); padding: 22px 0; }
+    .service-row:last-child { border-bottom: 1px solid var(--line); }
+    .service-num { color: var(--accent); font-size: 11px; font-weight: 900; }
+    .service-row h3 { margin: 0; font-size: 17px; letter-spacing: -.035em; }
+    .service-row p { margin: 3px 0 0; color: var(--muted); font-size: 11px; }
+    .service-arrow { color: var(--accent2); font-size: 20px; }
+    .contact { padding: 82px 0; background: var(--accent2); color: #151713; }
+    .contact-grid { display: flex; align-items: end; justify-content: space-between; gap: 35px; }
+    .contact .section-kicker { color: #34431d; }
+    .contact h2 { font-size: clamp(40px, 6vw, 72px); max-width: 700px; margin-top: 13px; }
+    .contact p { color: #414b30; font-size: 13px; max-width: 450px; }
+    .contact .button-light { background: #151713; color: var(--paper); border-color: #151713; }
+    .contact .button-light:hover { background: #323b25; }
+    footer { padding: 23px 0; color: #898a92; font-size: 10px; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .footer-links { display: flex; gap: 18px; }
+    .footer-links a:hover { color: var(--accent2); }
+    .edit-note { border: 1px dashed rgba(255,255,255,.22); padding: 11px 14px; border-radius: 12px; color: #9c9da4; font-size: 10px; margin-top: 24px; }
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 34px; }
+      .hero-art { max-width: 600px; width: 100%; margin-inline: auto; min-height: 360px; }
+      .art-main { height: 290px; }
+      .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .about-grid, .tools-grid { grid-template-columns: 1fr; gap: 42px; }
+      .about-aside { position: static; }
+      .portrait { max-width: 230px; aspect-ratio: 1; }
+      .portrait::after { font-size: 125px; }
+      .contact-grid { align-items: start; flex-direction: column; }
+    }
+    @media (max-width: 600px) {
+      .wrap { width: min(var(--max), calc(100% - 32px)); }
+      .nav { height: 66px; }
+      .navlinks { gap: 15px; font-size: 11px; }
+      .navlinks a:nth-child(2), .navlinks a:nth-child(3) { display: none; }
+      .nav-cta { padding: 10px 13px; }
+      .hero { padding: 66px 0 60px; }
+      h1 { font-size: clamp(47px, 14vw, 70px); }
+      .hero-copy { font-size: 14px; }
+      .hero-art { min-height: 300px; }
+      .art-main { width: 75%; height: 240px; right: 4%; }
+      .art-side { height: 135px; }
+      .art-bottom { height: 120px; }
+      .art-bottom::after { font-size: 23px; }
+      .art-stamp { width: 65px; height: 65px; font-size: 8px; }
+      .ticker-inner { justify-content: start; overflow: hidden; gap: 28px; }
+      .section { padding: 70px 0; }
+      .section-head { flex-direction: column; align-items: start; }
+      .project-grid { gap: 14px; }
+      .project-visual { min-height: 185px; }
+      .project-type { font-size: 21px; left: 12px; bottom: 14px; }
+      .project-number { left: 12px; top: 12px; }
+      .play { width: 31px; height: 31px; right: 10px; bottom: 10px; }
+      .project-info h3 { font-size: 12px; }
+      .project-info p { font-size: 9px; }
+      .about-detail, .tools-list, .experience-list { grid-template-columns: 1fr; }
+      .service-row { grid-template-columns: 30px 1fr auto; gap: 12px; }
+      .service-row h3 { font-size: 15px; }
+      .footer-inner { align-items: start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap nav">
+      <a class="brand" href="#home" aria-label="Allen portfolio home">
+        <span class="brand-mark">AJ</span>
+        <span class="brand-name">AJ EDITS<small>VIDEO + MOTION</small></span>
+      </a>
+      <nav class="navlinks" aria-label="Main navigation">
+        <a href="#work">Work</a><a href="#about">About</a><a href="#tools">Tools</a>
+      </nav>
+      <a class="nav-cta" href="#contact">Let's talk ↗</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow">Video editor · Motion graphics</span>
+          <h1>Good stories.<br>Better <em>edits.</em></h1>
+          <p class="hero-copy">I’m a video editor and motion graphics artist with <strong>4+ years of experience</strong> turning raw footage into clear, engaging stories. My work spans short-form reels, ads, podcast content, cinematic trailers, testimonials, and animation.</p>
+          <div class="actions">
+            <a class="button button-light" href="#work">Explore selected work <span>↘</span></a>
+            <a class="button button-outline" href="#about">A little about me</a>
+          </div>
+          <div class="hero-note"><span class="status-dot"></span> Remote collaboration <span aria-hidden="true">·</span> Davao City, Philippines <span aria-hidden="true">·</span> 4+ years in video and motion</div>
+        </div>
+        <div class="hero-art" aria-label="Abstract video editing and motion graphics artwork">
+          <div class="art-frame art-main"></div><div class="art-frame art-side"></div><div class="art-frame art-bottom"></div>
+          <div class="art-stamp">CUT WITH<br>INTENTION<br>✳</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="ticker" aria-hidden="true"><div class="wrap ticker-inner"><span>Short-form video</span><span>Motion graphics</span><span>Podcast edits</span><span>Video ads</span><span>Visual storytelling</span></div></div>
+
+    <section class="section" id="work">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="section-kicker">Selected work / 01</span><h2>Made to move<br>people.</h2></div>
+          <p class="section-intro">A selection of edits across different formats and styles. Open a category to browse the edits inside it.</p>
+        </div>
+        <div class="folder-bar" id="folderBar" hidden>
+          <button class="folder-back" id="folderBack" type="button">← All categories</button>
+          <span class="folder-path">Work / <strong id="folderName"></strong></span>
+        </div>
+        <div class="project-grid" id="projectGrid" aria-live="polite"></div>
+        <p class="work-foot">Open a category to browse its projects, then select one to view its sample on Playbook. Final site can host or embed the selected clips directly once the video files or preferred embeds are supplied.</p>
+      </div>
+    </section>
+
+    <section class="section about" id="about">
+      <div class="wrap about-grid">
+        <aside class="about-aside">
+          <div class="portrait" role="img" aria-label="Temporary monogram placeholder for Allen's profile photo"></div>
+          <p class="portrait-label">Allen James · AJ Edits</p>
+        </aside>
+        <div>
+          <span class="section-kicker">Behind the timeline / 02</span>
+          <h2 style="margin-bottom:26px;">Hi, I'm Allen.</h2>
+          <p class="about-copy">I’m Allen James, a <strong>video editor and motion graphics artist</strong> with over four years of experience creating content for digital platforms and a range of industries. I specialize in short-form reels, cinematic trailers, motion graphics, ads, and podcast content—combining thoughtful pacing and visual detail to help each story connect with its audience.</p>
+          <div class="about-detail">
+            <div><h3>What I do</h3><p>I’ve edited ads, organic social videos, UGC, testimonials, long- and short-form podcasts, public talks, course materials, and gaming montages. I also have experience in Live2D avatar rigging and graphic design.</p></div>
+            <div><h3>How I work</h3><p>I adapt the editing style to the audience, brand voice, and platform. I’m comfortable managing multiple projects, collaborating with clients, and delivering consistent work to deadlines.</p></div>
+          </div>
+          <div class="experience-block">
+            <h3 class="experience-heading">Selected experience</h3>
+            <div class="experience-list">
+              <article class="experience-item"><span>2025</span><h4>Video Editor · Sactown Video</h4><p>Edited ads, organic videos, testimonials, and public talks for clients across several industries.</p></article>
+              <article class="experience-item"><span>2023–2025</span><h4>Video Editor, Animation &amp; Graphics · Credit Leverage X</h4><p>Created social ads, UGC, podcast clips, course materials, thumbnails, and brand visuals.</p></article>
+              <article class="experience-item"><span>2020–2022</span><h4>Lead Gameplay &amp; Cinematic Video Editor · Invicta PH</h4><p>Produced gaming montages, highlight reels, event teasers, and cinematic trailers.</p></article>
+              <article class="experience-item"><span>2019–2022</span><h4>Freelance Live2D Rigging Artist</h4><p>Rigged virtual models and refined motion and expressions to match client needs.</p></article>
+              <article class="experience-item"><span>2018–2019</span><h4>Videographer &amp; Camera Operator · Ateneo de Davao University</h4><p>Supported university event coverage, live streaming, cameras, sound, and lighting.</p></article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="tools">
+      <div class="wrap tools-grid">
+        <div>
+          <span class="section-kicker">The toolkit / 03</span><h2>Tools of<br>the trade.</h2>
+          <p class="tools-copy">Adobe Premiere Pro and After Effects are my primary tools for shaping the edit, building rhythm, and adding motion. My wider toolkit also includes Live2D Cubism and Adobe design software for animation and supporting visuals.</p>
+
+        </div>
+        <div class="tools-list">
+          <article class="tool"><span class="tool-no">01 / PRIMARY</span><h3>Adobe Premiere Pro</h3><p>Editing · pacing · sound · storytelling</p></article>
+          <article class="tool"><span class="tool-no">02 / PRIMARY</span><h3>Adobe After Effects</h3><p>Motion graphics · animation · compositing</p></article>
+          <article class="tool"><span class="tool-no">03 / ADDITIONAL</span><h3>Live2D Cubism</h3><p>Avatar rigging · motion · expressions</p></article>
+          <article class="tool"><span class="tool-no">04 / ADDITIONAL</span><h3>Photoshop &amp; Illustrator</h3><p>Graphics · thumbnails · visual assets</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section services" id="services" style="padding-top:0;">
+      <div class="wrap">
+        <div class="section-head"><div><span class="section-kicker">Ways to collaborate / 04</span><h2>What I can help with.</h2></div><p class="section-intro">The portfolio can also point prospective clients toward the services that best match their project.</p></div>
+        <div class="service-row"><span class="service-num">01</span><div><h3>Short-form & social video</h3><p>Talking-head edits, tutorials, podcast shorts, and vertical content.</p></div><span class="service-arrow">↗</span></div>
+        <div class="service-row"><span class="service-num">02</span><div><h3>Promotional ads & testimonials</h3><p>Brand-focused edits, testimonial videos, and product or service promotions.</p></div><span class="service-arrow">↗</span></div>
+        <div class="service-row"><span class="service-num">03</span><div><h3>Motion graphics & long-form edits</h3><p>Animated titles, podcast segments, gaming edits, and other custom video formats.</p></div><span class="service-arrow">↗</span></div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap contact-grid">
+        <div><span class="section-kicker">Have a project in mind?</span><h2>Let's make something worth watching.</h2><p>For editing inquiries, collaborations, or freelance opportunities, reach out and let's talk about what you're building.</p></div>
+        <div class="actions" style="margin-top:0;">
+          <a class="button button-light" href="mailto:allenjames.pepito@gmail.com">Email Allen ↗</a>
+          <a class="button" style="border-color:rgba(21,23,19,.4);" href="https://www.linkedin.com/in/allen-james-pepito-b0a256272/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap footer-inner"><span>© <span id="year"></span> Allen James · AJ Edits</span><div class="footer-links"><a href="#work">Work</a><a href="#about">About</a><a href="#tools">Tools</a><a href="#contact">Contact</a></div><span>Designed for stories in motion.</span></div></footer>
+
+  <script>
+    // Current samples link to the existing Playbook asset pages. Replace `url` with a direct video/embed URL later if desired.
+    const playbookBase = 'https://www.playbook.com/s/ajedits/portfolio';
+    const projects = [
+      { title: 'Talking Head #1', category: 'Short-form', duration: '0:33', format: 'Vertical edit', token: 'sXk6ckpEvSwGsm7Uox5ufC4x', type: 'TALKING\nHEAD', paint: 'linear-gradient(140deg,#34273b,#b66a91 55%,#f2bc9a)', ratio: '.82' },
+      { title: 'Talking Head #2', category: 'Short-form', duration: '0:46', format: 'Vertical edit', token: '1EiZSVSjpDE58ko2KR5Lzfeo', type: 'TALKING\nHEAD 02', paint: 'linear-gradient(145deg,#243347,#527da9 52%,#d8b48b)', ratio: '.82' },
+      { title: 'Tutorial Shorts #1', category: 'Short-form', duration: '0:52', format: 'Tutorial · Vertical', token: '5iU5KesbCkKJ2jEFrFFMCZpZ', type: 'TUTORIAL\nSHORTS', paint: 'linear-gradient(140deg,#174944,#4fae95 55%,#d6e4b1)', ratio: '.82' },
+      { title: 'Motion Graphics Talking Head', category: 'Motion Graphics', duration: '0:29', format: 'Motion edit · Vertical', token: 'BBaAqofWRc3FMdELMWaJDysv', type: 'MOTION\nTALKING HEAD', paint: 'linear-gradient(140deg,#7a321e,#ed8952 55%,#f6d5a7)', ratio: '.82' },
+      { title: 'Podcast Segment Clip', category: 'Podcast', duration: '8:24', format: 'Podcast · 16:9', token: 'CH8o3t3aNEUYAefg9ezPxVxP', type: 'PODCAST\nSEGMENT', paint: 'linear-gradient(140deg,#343448,#6f72a8 55%,#d7bdcf)', ratio: '1.35' },
+      { title: 'Video Game Montage #1', category: 'Gaming', duration: '0:35', format: 'Gaming · 16:9', token: 'FSgYbTz5FaQLFpS68Uz8sDxW', type: 'GAME\nMONTAGE', paint: 'linear-gradient(140deg,#101d39,#4653a2 55%,#eb626b)', ratio: '1.35' },
+      { title: 'AD #3', category: 'Ads', duration: '0:44', format: 'Ad · Vertical', token: 'FZQUwdvASt71cLKNNRxza8Pv', type: 'AD\nCUT 03', paint: 'linear-gradient(140deg,#3f271f,#ce603d 55%,#f2bc80)', ratio: '.82' },
+      { title: 'Testimonial Review #1', category: 'Testimonials', duration: '2:23', format: 'Testimonial · 16:9', token: 'Fk1Bqa2ZsH2k6Gra1aUq5hJW', type: 'CUSTOMER\nSTORY', paint: 'linear-gradient(140deg,#293f3e,#679b8a 55%,#d8d5b5)', ratio: '1.35' },
+      { title: 'Motion Graphics Intro #1', category: 'Motion Graphics', duration: '0:24', format: 'Intro · 16:9', token: 'JM8PW1Ja1qNG1LXSjrE4htXX', type: 'MOTION\nINTRO 01', paint: 'linear-gradient(140deg,#271d44,#7465bf 55%,#c2b6fa)', ratio: '1.35' },
+      { title: 'Real Estate Listing Sample', category: 'Real Estate', duration: '—', format: 'Property listing', token: 'K7JXHoWVaCksG4NTZBQY1h9e', type: 'PROPERTY\nSHOWCASE', paint: 'linear-gradient(140deg,#24433d,#789d82 55%,#e5d5aa)', ratio: '1.35' },
+      { title: 'Motion Graphics Ads', category: 'Ads', duration: '0:12', format: 'Motion ad · Vertical', token: 'PWYpPvJu9KwY7kqY4yUe6RAm', type: 'MOTION\nAD', paint: 'linear-gradient(140deg,#522833,#d76565 55%,#f4ba8a)', ratio: '.82' },
+      { title: 'Video Game Highlights #1', category: 'Gaming', duration: '6:00', format: 'Gaming · 16:9', token: 'WpBxJFzdjcfZZQ3N3fmgi739', type: 'GAME\nHIGHLIGHTS', paint: 'linear-gradient(140deg,#171e2a,#3a769c 55%,#9bd8d6)', ratio: '1.35' },
+      { title: 'Motion Graphics Intro #2', category: 'Motion Graphics', duration: '0:07', format: 'Intro · 4:3', token: 'X6i7SUpz3gjDBPv9jtUd7xxx', type: 'MOTION\nINTRO 02', paint: 'linear-gradient(140deg,#4d3520,#d3984d 55%,#f4dfb9)', ratio: '1.15' },
+      { title: 'AD #2', category: 'Ads', duration: '0:55', format: 'Ad · Vertical', token: 'XbgtqnF3bmeCDrx7pGVDLawD', type: 'AD\nCUT 02', paint: 'linear-gradient(140deg,#28243c,#7662a7 55%,#ebb3ba)', ratio: '.82' },
+      { title: 'Podcast Short', category: 'Podcast', duration: '0:37', format: 'Podcast · Vertical', token: 'ggEZnQdM7KiMwusNAt2FizyX', type: 'PODCAST\nSHORT', paint: 'linear-gradient(140deg,#443629,#c38d59 55%,#e8d6b6)', ratio: '.82' },
+      { title: 'Video Game Event Trailer #1', category: 'Gaming', duration: '0:18', format: 'Event trailer · 16:9', token: 'iY5bktTPebzijti2HdX7cenb', type: 'EVENT\nTRAILER', paint: 'linear-gradient(140deg,#142e43,#1ca8a1 55%,#d3e9ce)', ratio: '1.35' },
+      { title: 'Testimonial #1', category: 'Testimonials', duration: '0:55', format: 'Testimonial · Vertical', token: 'qUoKmsU25jr1R1riTDY1PtHt', type: 'TESTIMONIAL\n01', paint: 'linear-gradient(140deg,#3e334a,#ab82a8 55%,#f3d6bf)', ratio: '.82' },
+      { title: 'AD #1', category: 'Ads', duration: '0:42', format: 'Ad · Vertical', token: 'r1CFy5FtZLnzvkf87nvXMtC6', type: 'AD\nCUT 01', paint: 'linear-gradient(140deg,#343b23,#8b9c4f 55%,#e3cc8b)', ratio: '.82' },
+      { title: 'AD #4', category: 'Ads', duration: '1:09', format: 'Ad · Vertical', token: 'xTRMBA6nrRvkMJguDZayMQBn', type: 'AD\nCUT 04', paint: 'linear-gradient(140deg,#36212d,#b84b5b 55%,#f0bd92)', ratio: '.82' }
+    ];
+
+    const categoryOrder = ['Short-form', 'Ads', 'Motion Graphics', 'Podcast', 'Gaming', 'Real Estate', 'Testimonials'];
+    const categories = categoryOrder
+      .map(name => ({ name, items: projects.filter(project => project.category === name) }))
+      .filter(category => category.items.length);
+    const grid = document.getElementById('projectGrid');
+    const folderBar = document.getElementById('folderBar');
+    const folderName = document.getElementById('folderName');
+    const projectUrl = project => `${playbookBase}?assetToken=${encodeURIComponent(project.token)}`;
+
+    function renderCategories() {
+      folderBar.hidden = true;
+      grid.innerHTML = categories.map((category, index) => {
+        const cover = category.items[0];
+        const single = category.items.length === 1;
+        const count = single ? '1 project' : `${category.items.length} projects`;
+        const label = single ? `Preview ${cover.title} on Playbook` : `Open ${category.name} folder (${count})`;
+        const inner = `<span class="category-face" style="--paint:${cover.paint}"></span>
+            <span class="gloss" aria-hidden="true"></span>
+            <span class="project-number">${String(index + 1).padStart(2,'0')} / ${count.toUpperCase()}</span>
+            <span class="project-type">${category.name}</span>
+            <span class="play" aria-hidden="true">${single ? '▶' : '→'}</span>`;
+        const visual = single
+          ? `<a class="project-visual category-visual" href="${projectUrl(cover)}" target="_blank" rel="noreferrer" style="--paint:${cover.paint}" aria-label="${label}">${inner}</a>`
+          : `<button class="project-visual category-visual has-stack" type="button" data-category="${category.name}" style="--paint:${cover.paint}" aria-label="${label}">${inner}</button>`;
+        return `<article class="project category">
+          ${visual}
+          <div class="project-info"><div><h3>${category.name}</h3><p>${single ? cover.title + ' · ' + cover.format : count + ' · Open folder'}</p></div><span class="arrow" aria-hidden="true">${single ? '↗' : '→'}</span></div>
+        </article>`;
+      }).join('');
+      grid.querySelectorAll('[data-category]').forEach(button => button.addEventListener('click', () => openFolder(button.dataset.category)));
+    }
+
+    function openFolder(name) {
+      const category = categories.find(item => item.name === name);
+      folderName.textContent = name;
+      folderBar.hidden = false;
+      grid.innerHTML = category.items.map(project => {
+        const url = projectUrl(project);
+        return `<article class="project">
+          <a class="project-visual" href="${url}" target="_blank" rel="noreferrer" style="--paint:${project.paint};--ratio:${project.ratio}" aria-label="Open ${project.title} sample on Playbook">
+            <span class="project-number">PROJECT / ${String(projects.indexOf(project) + 1).padStart(2,'0')}</span>
+            <span class="project-type">${project.type.replace(/\n/g,'<br>')}</span>
+            <span class="play" aria-hidden="true">↗</span>
+          </a>
+          <div class="project-info"><div><h3>${project.title}</h3><p>${project.category} · ${project.format}${project.duration !== '—' ? ' · ' + project.duration : ''}</p></div><a class="arrow" href="${url}" target="_blank" rel="noreferrer" aria-label="View ${project.title}">↗</a></div>
+        </article>`;
+      }).join('');
+      document.getElementById('folderBack').focus({ preventScroll: true });
+      document.getElementById('work').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    document.getElementById('folderBack').addEventListener('click', () => {
+      const previous = folderName.textContent;
+      renderCategories();
+      grid.querySelector(`[data-category="${previous}"]`)?.focus({ preventScroll: true });
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+    renderCategories();
+  </script>
+</body>
+</html>
